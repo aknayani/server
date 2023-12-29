@@ -13,7 +13,7 @@ app.use(morgan('tiny'));
 app.disable('x-powered-by'); // less hackers know about our stack
 
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 /** HTTP GET Request */
 app.get('/', (req, res) => {
@@ -21,11 +21,7 @@ app.get('/', (req, res) => {
 });
 
 
-//static files
-app.use(express.static(path.join(__dirname, "../client/build")));
-app.get('*' , function (req , res) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"))
-});
+
 
 
 /** api routes */
