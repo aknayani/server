@@ -11,8 +11,8 @@ async function connect(){
     const getUri = mongod.getUri();
 
     mongoose.set('strictQuery', true)
-    // const db = await mongoose.connect(getUri);
-    const db = await mongoose.connect(process.env.DATABASE_URL);
+    const db = await mongoose.connect(getUri);
+    // const db = await mongoose.connect(process.env.DATABASE_URL);
     console.log("Database Connected")
     return db;
 }
